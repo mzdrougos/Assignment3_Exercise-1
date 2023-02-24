@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 3</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Exercise 1</h1>
+    <p>Enter number to find all lower prime numbers:</p>
+    <input type="number" id="num" />
+    <button onclick="findPrimes()">Calculate</button>
+	<p style="font-size: 2.5em"><b>The prime numbers are:</b></p>
+    <p id="result" style="font-size: 2em"></p>
+    <script>
+		function primeCalculator(n) {
+			if (n <= 1) {
+				return false;
+			}
+			for (let i = 2; i <= Math.sqrt(n); i++) {
+				if (n % i === 0) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		function findPrimes() {
+			const num = document.getElementById('num').value;
+			const primes = document.getElementById('result');
+			let result = '';
+
+			for (let i = 2; i <= num; i++) {
+				if (primeCalculator(i)) {
+					result += i + ' ';
+				}
+			}
+
+			primes.innerHTML = result;
+		}
+    </script>
+</body>
+</html>
